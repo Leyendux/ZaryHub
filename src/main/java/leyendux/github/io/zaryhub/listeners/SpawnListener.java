@@ -1,7 +1,6 @@
 package leyendux.github.io.zaryhub.listeners;
 
 import leyendux.github.io.zaryhub.util.MethodUtils;
-import net.luckperms.api.event.player.PlayerDataSaveEvent;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

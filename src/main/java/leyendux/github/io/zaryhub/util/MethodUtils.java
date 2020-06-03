@@ -43,7 +43,7 @@ public class MethodUtils {
     public static Inventory hubInventory(String name, int slots) {
         Inventory inv = Bukkit.createInventory(null, slots, name);
 
-        inv.setItem(11, createItemStack(Material.GOLDEN_APPLE, "§b§lUHC Servers", "§8» §71.7x - 1.8x", "§8» §7NA - SA", "§8» §7Players Online: §b" + BungeeData.getPlayerCount("uhc")));
+        inv.setItem(11, createItemStack(Material.GOLDEN_APPLE, "§b§lUHC Servers", "§8» §71.7x - 1.8x", "§8» §7NA - SA", "§8» §7Players Online: §b" + BungeeData.getPlayerCount(Main.getInstance().getRegion() + "-UHC")));
         inv.setItem(15, createItemStack(Material.BEDROCK, "§cHmm...", "§8» §bdiscord.zarynetwork.net", "§8» §b@ZaryNetwork"));
         inv.setItem(18, createItemStack(Material.PAPER, "§cClose Menu"));
 

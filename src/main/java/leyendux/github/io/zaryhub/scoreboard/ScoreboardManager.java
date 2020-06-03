@@ -26,10 +26,10 @@ public class ScoreboardManager implements AssembleAdapter {
         scoreLines.add(" ");
         scoreLines.add("§bTotal Online: §f" + BungeeData.getPlayerCount("ALL"));
         scoreLines.add(" ");
-        scoreLines.add(" §8» §bHub: §f" + BungeeData.getPlayerCount("lobby"));
-        scoreLines.add(" §8» §bUHC: §f" + BungeeData.getPlayerCount("uhc"));
+        scoreLines.add(" §8» §bHub: §f" + BungeeData.getPlayerCount(Main.getInstance().getRegion() + "-HUB"));
+        scoreLines.add(" §8» §bUHC: §f" + BungeeData.getPlayerCount(Main.getInstance().getRegion() + "-UHC"));
         scoreLines.add(lines);
-        String[] lastLine = {"discord.zarynetwork.net", "@ZaryNetwork", "hub.zarynetwork.net"};
+        String[] lastLine = {"discord.zarynetwork.net", "@ZaryNetwork", Main.getInstance().getRegion().toLowerCase() + ".zarynetwork.net"};
         scoreLines.add("§b" + lastLine[new Random().nextInt(lastLine.length)]);
         return scoreLines;
     }
