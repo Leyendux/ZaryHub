@@ -13,7 +13,7 @@ import java.util.Map;
 public class BungeeData {
 
     private static Map<String, Integer> dataMap = new HashMap<String, Integer>();
-    private static String[] servers = {"ALL", "lobby", "uhc"};
+    private static String[] servers = {"ALL", "NA-HUB", "NA-UHC"};
 
     public static void setup() {
         for(String server : servers) {

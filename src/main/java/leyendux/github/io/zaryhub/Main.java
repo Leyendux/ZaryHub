@@ -3,12 +3,12 @@ package leyendux.github.io.zaryhub;
 import io.github.thatkawaiisam.assemble.Assemble;
 import io.github.thatkawaiisam.assemble.AssembleStyle;
 import leyendux.github.io.zaryhub.data.BungeeData;
-import leyendux.github.io.zaryhub.listeners.BoardCreatedListener;
-import leyendux.github.io.zaryhub.listeners.BungeeMessageListener;
-import leyendux.github.io.zaryhub.listeners.PlayerJoinListener;
-import leyendux.github.io.zaryhub.listeners.PlayerQuitListener;
+import leyendux.github.io.zaryhub.listeners.*;
 import leyendux.github.io.zaryhub.scoreboard.ScoreboardManager;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.World;
+import org.bukkit.WorldCreator;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin {
@@ -33,6 +33,8 @@ public class Main extends JavaPlugin {
 
         registerChannels();
         registerListeners();
+
+        loadSpawn();
     }
 
     @Override
@@ -66,5 +68,15 @@ public class Main extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new BoardCreatedListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerQuitListener(), this);
+        Bukkit.getPluginManager().registerEvents(new SpawnListener(), this);
+    }
+
+    private void loadSpawn() {
+        World world = new WorldCreator("LoTooS2").createWorld();
+        world.setGameRuleValue("doDaylightCycle", "false");
+    }
+
+    public Location getSpawnLocation() {
+        return new Location(Bukkit.getWorld("LoTooS2"), 260, 68, 272);
     }
 }
