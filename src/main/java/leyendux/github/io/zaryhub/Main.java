@@ -62,6 +62,9 @@ public class Main extends JavaPlugin {
     private void registerChannels() {
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
         getServer().getMessenger().registerIncomingPluginChannel(this, "BungeeCord", new BungeeMessageListener());
+
+        getServer().getMessenger().registerOutgoingPluginChannel(this, "ZaryCore");
+        getServer().getMessenger().registerIncomingPluginChannel(this, "ZaryCore", new ZaryMessageListener());
     }
 
     private void registerListeners() {

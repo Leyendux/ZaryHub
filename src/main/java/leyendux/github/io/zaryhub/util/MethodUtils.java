@@ -25,6 +25,16 @@ public class MethodUtils {
         player.sendPluginMessage(Main.getInstance(), "BungeeCord", out.toByteArray());
     }
 
+    public static void sendMessageToBungee(String channelName, String messageTo, String message, Player player) {
+        ByteArrayDataOutput out = ByteStreams.newDataOutput();
+
+        out.writeUTF(channelName);
+        out.writeUTF(messageTo);
+        out.writeUTF(message);
+
+        player.sendPluginMessage(Main.getInstance(), "BungeeCord", out.toByteArray());
+    }
+
     public static int getPing(Player player) {
         return ((CraftPlayer)player).getHandle().ping;
     }
