@@ -17,6 +17,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 public class SpawnListener implements Listener {
 
@@ -67,19 +68,36 @@ public class SpawnListener implements Listener {
         Player player = (Player) event.getWhoClicked();
 
         Inventory inv = event.getClickedInventory();
+        ItemStack itemStack = event.getCurrentItem();
         Material item = event.getCurrentItem().getType();
 
         if(inv.getName().contains("Navigation")) {
             switch(item) {
                 case GOLDEN_APPLE:
                     player.closeInventory();
-                    player.sendMessage("§cWorking on it...");
+                    player.openInventory(MethodUtils.uhcInventory("§3§lUHC", 27));
                     break;
                 case PAPER:
                     player.closeInventory();
                     break;
                 default:
                     break;
+            }
+        }
+        if(inv.getName().contains("UHC")) {
+            switch (item) {
+                case GOLDEN_APPLE:
+                    if(itemStack.getItemMeta().getDisplayName().contains("North America")) {
+                        player.closeInventory();
+                        MethodUtils.sendMessageToBungee("Connect", "NA-UHC", player);
+                    } else {
+                        player.closeInventory();
+                        player.sendMessage("§cWorking on it...");
+                    }
+                    break;
+                case PAPER:
+                    player.closeInventory();
+                    player.openInventory(MethodUtils.hubInventory("§3§lNavigation", 27));
             }
         }
     }

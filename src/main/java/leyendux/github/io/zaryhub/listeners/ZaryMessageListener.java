@@ -21,6 +21,7 @@ public class ZaryMessageListener implements PluginMessageListener {
             String rank = in.readUTF();
 
             Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "lp user " + target + " parent set "+ rank);
+            Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "lp networksync");
             MethodUtils.sendMessageToBungee("Message", "ALL", ValuesUtil.PREFIX.getValue() + "§b" + target + " has been moved to §e" + rank, player);
         }
     }

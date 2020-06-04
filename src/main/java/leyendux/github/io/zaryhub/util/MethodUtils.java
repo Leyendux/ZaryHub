@@ -59,4 +59,14 @@ public class MethodUtils {
 
         return inv;
     }
+
+    public static Inventory uhcInventory(String name, int slots) {
+        Inventory inv = Bukkit.createInventory(null, slots, name);
+
+        inv.setItem(11, createItemStack(Material.GOLDEN_APPLE, "§b§lUHC North America", "§8» §7Miami, Florida", "§8» §7Status: §6LOBBY", "§8» §7Players Online: §b" + BungeeData.getPlayerCount("NA-UHC")));
+        inv.setItem(15, createItemStack(Material.GOLDEN_APPLE, "§b§lUHC South America", "§8» §cWorking on it..."));
+        inv.setItem(18, createItemStack(Material.PAPER, "§cBack"));
+
+        return inv;
+    }
 }
